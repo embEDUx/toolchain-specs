@@ -1,3 +1,10 @@
 #! /bin/bash -e
 
+# Build
 ct-ng build
+
+# Cleanup
+
+rm -rf build.log  
+rm -rf .config.*
+rm -rf .build
