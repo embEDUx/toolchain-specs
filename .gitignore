@@ -1,0 +1,8 @@
+# Build process
+.build/
+.config.*
+config*
+build.log
+output/
+src/
+
