@@ -1,10 +1,23 @@
 #! /bin/bash -e
 
-# Build
+#####################
+# Configuration     #                    
+#####################
+
+TMP_DIR=tmp
+OUTPUT_DIR=output
+
+#####################
+# Script            #
+#####################
+
 ct-ng build
 
-# Cleanup
+# Prepare output
+mkdir -p ${OUTPUT_DIR}
 
-rm -rf build.log  
-rm -rf .config.*
-rm -rf .build
+OUTPUT_TOOLCHAIN="$(git rev-parse --abbrev-ref HEAD)_$(date '+%Y%m%d%H%M%S')_$(git rev-parse HEAD)_toolchain.tar.gz"
+
+PACK_CMD="tar -czf ${OUTPUT_DIR}/${OUTPUT_TOOLCHAIN} -C ${TMP_DIR} ."
+echo "Executing ${PACK_CMD}"
+${PACK_CMD}
