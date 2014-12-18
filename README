@@ -1,0 +1,2 @@
+## Requirements for building static toolchain
+* sys-libs/zlib +static-libs
