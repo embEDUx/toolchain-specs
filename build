@@ -11,13 +11,16 @@ OUTPUT_DIR=output
 # Script            #
 #####################
 
-ct-ng build
+CMD="ct-ng build"
+echo "BUILDING: ${CMD}"
+${CMD}
 
 # Prepare output
-mkdir -p ${OUTPUT_DIR}
+CMD="mkdir -p ${OUTPUT_DIR}"
+echo "PREPARING: ${CMD}"
+${CMD}
 
-OUTPUT_TOOLCHAIN="$(git rev-parse --abbrev-ref HEAD)_$(date '+%Y%m%d%H%M%S')_$(git rev-parse HEAD)_toolchain.tar.gz"
-
-PACK_CMD="tar -czf ${OUTPUT_DIR}/${OUTPUT_TOOLCHAIN} -C ${TMP_DIR} ."
-echo "Executing ${PACK_CMD}"
-${PACK_CMD}
+# Pack toolchain into tar archiv
+CMD="tar -cjf ${OUTPUT_DIR}/$(git rev-parse --abbrev-ref HEAD)_$(date '+%Y%m%d%H%M%S')_$(git rev-parse --short HEAD)_toolchain.tar.bz2 -C ${TMP_DIR} ."
+echo "PACKING: ${CMD}"
+${CMD}
