@@ -11,8 +11,6 @@ OUTPUT_DIR=output
 # Script            #
 #####################
 
-echo "$(ld -v)"
-
 CMD="ct-ng build"
 echo "BUILDING: ${CMD}"
 ${CMD}
