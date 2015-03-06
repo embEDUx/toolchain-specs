@@ -22,5 +22,5 @@ mkdir -p ${OUTPUT_DIR}
 tar -cjf ${OUTPUT_DIR}/$(git rev-parse --abbrev-ref HEAD)_$(date '+%Y%m%d%H%M%S')_$(git rev-parse --short HEAD)_toolchain.tar.bz2 -C ${TMP_DIR} .
 
 # Clean up
-ct-ng distclean
+find -type d -exec chmod u+w {} \; 
 
