@@ -15,7 +15,6 @@ unset TARGET_ARCH
 unset HOST_ARCH
 
 ct-ng build
-ct-ng tarball
 
 # Prepare output
 mkdir -p ${OUTPUT_DIR}
